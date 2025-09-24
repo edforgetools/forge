@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Forge</title>
+
+  <meta name="description" content="Forge — free, pro-grade creator tools for fast YouTube thumbnails and overlays." />
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="canonical" href="https://forge.example.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Forge — Free creator tools" />
+  <meta property="og:description" content="Generate thumbnails under 2MB. Capture, brand, export." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://forge.example.com/" />
+  <meta property="og:image" content="/og-image.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Forge — Free creator tools" />
+  <meta name="twitter:description" content="Generate thumbnails under 2MB. Capture, brand, export." />
+  <meta name="twitter:image" content="/og-image.png" />
+
+  <!-- Basic meta CSP (move to HTTP headers in production) -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' blob: data:; script-src 'self' 'unsafe-inline' https://plausible.io; style-src 'self' 'unsafe-inline'; connect-src 'self' https://plausible.io; font-src 'self' data:;">
+
+  <!-- Plausible analytics (set your domain) -->
+  <script defer data-domain="forge.example.com" src="https://plausible.io/js/script.js"></script>
+  <script>
+    // Minimal event helpers
+    window.plausible = window.plausible || function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}
+    window.addEventListener('load', () => {
+      try { window.plausible('app_open') } catch {}
+    });
+    window.__forgeAnalytics = {
+      exportSuccess: () => { try { window.plausible('export_success') } catch {} },
+      exportFail: () => { try { window.plausible('export_fail') } catch {} }
+    };
+  </script>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+</html>

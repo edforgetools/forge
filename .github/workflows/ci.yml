@@ -2,13 +2,12 @@ name: CI
 
 on:
   push:
-    branches: [ main, master ]
+    branches: [main]
   pull_request:
-    branches: [ main, master ]
+    branches: [main]
 
 jobs:
-  build-and-tests:
-    name: Build and Tests
+  build_and_tests:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -20,12 +19,19 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: pnpm
+          cache: 'pnpm'
 
-      - run: corepack enable
-      - run: pnpm install --frozen-lockfile
-      - run: pnpm lint || echo "lint script missing"
-      - run: pnpm test:unit || echo "unit tests missing"
-      - run: pnpm build
-      - run: npx playwright install --with-deps
-      - run: pnpm test:e2e
+      - name: Install
+        run: pnpm install --frozen-lockfile
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Typecheck
+        run: pnpm exec tsc -p tsconfig.json --noEmit
+
+      - name: Unit tests
+        run: pnpm test
+
+      - name: Build
+        run: pnpm build

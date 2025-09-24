@@ -20,3 +20,4 @@ pnpm dev
 ## Tech
 
 React + TS, Vite, Tailwind, Zustand, Playwright, Vitest.
+

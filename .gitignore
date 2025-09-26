@@ -1,0 +1,19 @@
+# macOS
+.DS_Store
+__MACOSX/
+
+# Node / build tooling that should never live here
+node_modules/
+dist/
+.vscode/
+.idea/
+
+# Tests, coverage, caches
+coverage/
+.playwright/
+.vitest/
+.nyc_output/
+*.log
+
+# OS/editor
+Thumbs.db
